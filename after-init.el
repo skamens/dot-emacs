@@ -27,7 +27,7 @@
 
 (defun small-font ()
   (interactive)
-  (set-face-font (quote default) "-misc-fixed-medium-r-normal-*-15-140-*-*-*-*-*-*"))
+  (set-face-font (quote default) "-misc-fixed-medium-r-normal--13-*-100-100-c-70-iso8859-1"))
 
 
 ; Get rid of electric pair mode - I hate that!
@@ -37,13 +37,13 @@
 ;
 ; My keyboard mappings
 ;
-(global-set-key "\C-cr" 'snk-revert-buffer)
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key "\C-cm" 'manual-entry)
 (global-set-key [f2] 'compile)
 (global-set-key [f3] 'grep)
 (global-set-key [f4] 'next-error)
 (global-set-key [f5] 'kmacro-end-and-call-macro)
+(global-set-key [f6] 'snk-revert-buffer)
 
 
 (defun find-matching-paren (&optional arg)
@@ -66,3 +66,9 @@
 
 (require 'windmove)
 (windmove-default-keybindings 'ctrl)
+
+(setq rtags-autostart-diagnostics t)
+(rtags-diagnostics)
+(setq rtags-completions-enabled t)
+(company-mode)
+(define-key c-mode-base-map (kbd "<C-return>") (function company-complete))
